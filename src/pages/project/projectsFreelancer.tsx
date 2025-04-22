@@ -6,9 +6,10 @@ import { Separator } from "@/components/ui/separator";
 import { images } from "@/utils/imagem";
 import { ArrowUpRight } from "lucide-react";
 
-export function HeroSection(){
+
+export function ProjectsFreelancer() {
     return (
-      <div className="bg-gray_700 px-28 pb-20 pt-10 flex items-start max-[1330px]:flex-col max-[1330px]:juntify-center max-[1330px]:items-center max-[1330px]:gap-10 min-[320px]:px-4 min-[1330px]:jutify-center min-[1330px]:px-28 min-[1440px]:justify-center">
+        <div className="bg-gray_700 px-28 pb-20 pt-10 flex items-start max-[1330px]:flex-col max-[1330px]:juntify-center max-[1330px]:items-center max-[1330px]:gap-10 min-[320px]:px-4 min-[1330px]:jutify-center min-[1330px]:px-28 min-[1440px]:justify-center">
         <div className="bg-gray_600 gap-10 p-10 rounded-[10px] max-w-[728px] min-[320px]:p-5">
           <div className="flex gap-[70px] min-[320px]:flex-col min-[320px]:items-center min-[320px]:gap-10 min-[768px]:flex-row min-[768px]:justify-between min-[768px]:items-start">
             <div className="flex  flex-col min-[320px]:items-center min-[768px]:items-start">
@@ -118,5 +119,5 @@ export function HeroSection(){
           </div>
         </div>
       </div>
-    );
+    )
 }

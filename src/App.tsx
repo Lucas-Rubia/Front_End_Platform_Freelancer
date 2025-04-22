@@ -1,14 +1,17 @@
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./components/theme-provider";
 import { Toaster } from "./components/ui/sonner";
 import { Header } from "./pages/home/header";
-import { HeroSection } from "./pages/home/heroSection";
+import { Router } from "./router/router";
 
 export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="freelancer-theme">
-      <Toaster />
-      <Header />
-      <HeroSection />
+      <BrowserRouter>
+        <Toaster />
+        <Header />
+        <Router />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

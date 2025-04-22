@@ -10,35 +10,47 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { images } from "@/utils/imagem";
 import { MenuIcon } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export function Header(){
     return (
       <div className="bg-gray_700">
         <div className="grid grid-cols-12 items-center  py-5 max-[1240px]:flex max-[1240px]:justify-between min-[320px]:px-14">
           <div className="flex gap-2 items-center col-span-3">
-            <img src={images.LogoFreelancer} alt="LogoFreelancer" />
-            <h1 className="font-bold text-white text-xl max-[425px]:hidden">FreelancerServer</h1>
+            <NavLink to="/" className="flex items-center gap-2 ">
+              <img src={images.LogoFreelancer} alt="LogoFreelancer" />
+              <h1 className="font-bold text-white text-xl max-[425px]:hidden">
+                FreelancerServer
+              </h1>
+            </NavLink>
           </div>
 
           <div className="flex justify-center gap-6 text-16 text-gray_300 col-span-6 max-[768px]:hidden">
-            <Button
-              variant="ghost"
-              className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
-            >
-              Projetos
-            </Button>
-            <Button
-              variant="ghost"
-              className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
-            >
-              Propostas
-            </Button>
-            <Button
-              variant="ghost"
-              className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
-            >
-              Contratos
-            </Button>
+            <NavLink to="/projetosFreelancer">
+              <Button
+                variant="ghost"
+                className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
+              >
+                Projetos
+              </Button>
+            </NavLink>
+
+            <NavLink to="/proposalFreelancer">
+              <Button
+                variant="ghost"
+                className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
+              >
+                Propostas
+              </Button>
+            </NavLink>
+            <NavLink to="/contractFreelancer">
+              <Button
+                variant="ghost"
+                className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
+              >
+                Contratos
+              </Button>
+            </NavLink>
           </div>
 
           <div className="flex items-center justify-end gap-1 col-span-3 max-[1240px]:hidden">
@@ -65,7 +77,7 @@ export function Header(){
           <div className="hidden max-[1240px]:flex max-[1240px]:items-center max-[1240px]:justify-end max-[1240px]:gap-1 max-[1240px]:col-span-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <MenuIcon className="stroke-gray_200"/>
+                <MenuIcon className="stroke-gray_200" />
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
