@@ -17,7 +17,6 @@ export default {
 			blue_dark: '#5354FD',
 			blue_light: '#7677FF',
 			
-			gray_100: '#FFFFFF',
 			gray_200: '#C3C3D1',
 			gray_300: '#8C8C9A',
 			gray_400: '#1E1E2C',
@@ -31,7 +30,8 @@ export default {
 			error_light: '#FECDD3',
 			error: '#881337',
 
-			white: '#FFFFFF',
+			white: '#FFFFFF',  			
+			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',

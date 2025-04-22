@@ -1,3 +1,5 @@
+import { ButtonEnviarProposta } from "@/components/buttonEnviarProposta";
+import { getRandomGradient } from "@/components/get-random-gradient";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -7,24 +9,22 @@ import { ArrowUpRight } from "lucide-react";
 export function HeroSection(){
     return (
       <div className="bg-gray_700 px-28 pb-20 pt-10 flex items-start max-[1330px]:flex-col max-[1330px]:juntify-center max-[1330px]:items-center max-[1330px]:gap-10 min-[320px]:px-4 min-[1330px]:jutify-center min-[1330px]:px-28 min-[1440px]:justify-center">
-        <div className="bg-gray_600 text-white gap-10 p-10 rounded-[10px] max-w-[728px] min-[320px]:p-5">
+        <div className="bg-gray_600 gap-10 p-10 rounded-[10px] max-w-[728px] min-[320px]:p-5">
           <div className="flex gap-[70px] min-[320px]:flex-col min-[320px]:items-center min-[320px]:gap-10 min-[768px]:flex-row min-[768px]:justify-between min-[768px]:items-start">
             <div className="flex  flex-col min-[320px]:items-center min-[768px]:items-start">
               <Badge className="uppercase  w-fit text-12 text-success_light bg-success hover:bg-success px-3 py-2 ">
                 Aceitando Proposta
               </Badge>
-              <p className="heading-28 text-gray-100 py-4 flex-wrap max-[768px]:heading-28">
+              <p className="heading-28 py-4 flex-wrap max-[768px]:heading-28">
                 Landing page para Pet Shop
               </p>
               <p className="text-14 text-gray_300">Publicado há 2 horas</p>
             </div>
 
             <div className="text-14 flex flex-col ">
-              <Button className="bg-blue_dark mb-4 px-8 rounded-sm hover:bg-blue_light uppercase">
-                Enviar Proposta
-              </Button>
+              <ButtonEnviarProposta/>
               <p className="text-gray-300 flex justify-between w-full ">
-                <span> DeadLine:</span>
+                <span> Prazo Final:</span>
                 <span className="text-gray_100"> 15/05/2025</span>
               </p>
             </div>
@@ -58,7 +58,7 @@ export function HeroSection(){
 
           <div className="text-gray_300 text-12">
             <h2 className="pb-4">Publicado por</h2>
-            <div className="flex items-center gap-4 text-14 text-white">
+            <div className="flex items-center gap-4 text-14">
               <img src={images.Avatar2} />
               <p>Mayke Brito</p>
             </div>
@@ -66,49 +66,49 @@ export function HeroSection(){
         </div>
 
         {/* max-w-[448px] */}
-        <div className="bg-gray_600 text-white gap-10 p-10 rounded-[10px] ml-10 max-[1380px]:p-5 max-[1330px]:max-w-[728px] max-[1330px]:w-full max-[1330px]:m-0 min-[320px]:p-5 ">
+        <div className="bg-gray_600 gap-10 p-10 rounded-[10px] ml-10 max-[1380px]:p-5 max-[1330px]:max-w-[728px] max-[1330px]:w-full max-[1330px]:m-0 min-[320px]:p-5 ">
           <div className="mx-10 my-4  flex flex-col min-[320px]:mx-1 min-[320px]:my-1">
             <h1 className="flex justify-center items-center text-20 max-[1330px]:text-2xl">
               Outros pojetos de Mayke Brito
             </h1>
             <Separator className="bg-gray_400 mt-6" />
             <div className="flex justify-between items-center py-6 max-[1380px]:text-12 max-[1380px]:justify-start max-[1380px]:gap-4 min-[768px]:justify-between">
-              <span className="rounded-full size-8 bg-green-600 text-16 mr-2"></span>
+              <span className={`rounded-full size-8 ${getRandomGradient()} text-16 mr-2`}/>
               <div className="min-[320px]:flex min-[320px]:flex-col">
                 <h3 className="min-[320px]:text-14"> Landing Page para Cafeteria</h3>
-                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">DeadLine: 20/30/26</p>
+                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">Prazo Final: 20/30/26</p>
               </div>
               <ArrowUpRight className="bg-gray_500 size-8 rounded-full p-2 ml-10 hover:bg-gray_700 min-[320px]:hidden min-[768px]:flex" />
             </div>
             <div className="flex justify-between items-center py-6 max-[1380px]:text-12 max-[1380px]:justify-start max-[1380px]:gap-4 min-[768px]:justify-between">
-              <span className="rounded-full size-8 bg-green-600 text-16 mr-2"></span>
+              <span className={`rounded-full size-8 ${getRandomGradient()} text-16 mr-2`}/>
               <div className="min-[320px]:flex min-[320px]:flex-col">
                 <h3 className="min-[320px]:text-14"> Landing Page para Cafeteria</h3>
-                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">DeadLine: 20/30/26</p>
+                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">Prazo Final: 20/30/26</p>
               </div>
               <ArrowUpRight className="bg-gray_500 size-8 rounded-full p-2 ml-10 hover:bg-gray_700 min-[320px]:hidden min-[768px]:flex" />
             </div>
             <div className="flex justify-between items-center py-6 max-[1380px]:text-12 max-[1380px]:justify-start max-[1380px]:gap-4 min-[768px]:justify-between">
-              <span className="rounded-full size-8 bg-green-600 text-16 mr-2"></span>
+              <span className={`rounded-full size-8 ${getRandomGradient()} text-16 mr-2`}/>
               <div className="min-[320px]:flex min-[320px]:flex-col">
                 <h3 className="min-[320px]:text-14"> Landing Page para Cafeteria</h3>
-                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">DeadLine: 20/30/26</p>
+                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">Prazo Final: 20/30/26</p>
               </div>
               <ArrowUpRight className="bg-gray_500 size-8 rounded-full p-2 ml-10 hover:bg-gray_700 min-[320px]:hidden min-[768px]:flex" />
             </div>
             <div className="flex justify-between items-center py-6 max-[1380px]:text-12 max-[1380px]:justify-start max-[1380px]:gap-4 min-[768px]:justify-between">
-              <span className="rounded-full size-8 bg-green-600 text-16 mr-2"></span>
+              <span className={`rounded-full size-8 ${getRandomGradient()} text-16 mr-2`}/>
               <div className="min-[320px]:flex min-[320px]:flex-col">
                 <h3 className="min-[320px]:text-14"> Landing Page para Cafeteria</h3>
-                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">DeadLine: 20/30/26</p>
+                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">Prazo Final: 20/30/26</p>
               </div>
               <ArrowUpRight className="bg-gray_500 size-8 rounded-full p-2 ml-10 hover:bg-gray_700 min-[320px]:hidden min-[768px]:flex" />
             </div>
             <div className="flex justify-between items-center py-6 max-[1380px]:text-12 max-[1380px]:justify-start max-[1380px]:gap-4 min-[768px]:justify-between">
-              <span className="rounded-full size-8 bg-green-600 text-16 mr-2"></span>
+              <span className={`rounded-full size-8 ${getRandomGradient()} text-16 mr-2`}/>
               <div className="min-[320px]:flex min-[320px]:flex-col">
                 <h3 className="min-[320px]:text-14"> Landing Page para Cafeteria</h3>
-                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">DeadLine: 20/30/26</p>
+                <p className="text-gray-300 text-12 min-[320px]:text-12 max-[1330px]:text-16">Prazo Final: 20/30/26</p>
               </div>
               <ArrowUpRight className="bg-gray_500 size-8 rounded-full p-2 ml-10 hover:bg-gray_700 min-[320px]:hidden min-[768px]:flex" />
             </div>

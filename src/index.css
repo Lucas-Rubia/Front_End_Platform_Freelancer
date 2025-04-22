@@ -60,7 +60,8 @@
 
 @layer base {
   * {
-    @apply font-Segoe;
+    @apply font-Segoe text-foreground;
+
   }
 }
 
