@@ -1,4 +1,3 @@
-import { ButtonEnviarProposta } from "@/components/buttonEnviarProposta";
 import { getRandomGradient } from "@/components/get-random-gradient";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,7 @@ import { images } from "@/utils/imagem";
 import { ArrowUpRight } from "lucide-react";
 
 
-export function ProjectsFreelancer() {
+export function ProjectsClient() {
     return (
         <div className="bg-gray_700 px-28 pb-20 pt-10 flex items-start max-[1330px]:flex-col max-[1330px]:juntify-center max-[1330px]:items-center max-[1330px]:gap-10 min-[320px]:px-4 min-[1330px]:jutify-center min-[1330px]:px-28 min-[1440px]:justify-center">
         <div className="bg-gray_600 gap-10 p-10 rounded-[10px] max-w-[728px] min-[320px]:p-5">
@@ -23,7 +22,9 @@ export function ProjectsFreelancer() {
             </div>
 
             <div className="text-14 flex flex-col ">
-              <ButtonEnviarProposta/>
+              <div className="bg-blue_dark mb-4 text-16 px-8 py-2 rounded-sm uppercase">
+                200 propostas
+              </div>
               <p className="text-gray-300 flex justify-between w-full ">
                 <span> Prazo Final:</span>
                 <span className="text-gray_100"> 15/05/2025</span>
@@ -70,7 +71,7 @@ export function ProjectsFreelancer() {
         <div className="bg-gray_600 gap-10 p-10 rounded-[10px] ml-10 max-[1380px]:p-5 max-[1330px]:max-w-[728px] max-[1330px]:w-full max-[1330px]:m-0 min-[320px]:p-5 ">
           <div className="mx-10 my-4  flex flex-col min-[320px]:mx-1 min-[320px]:my-1">
             <h1 className="flex justify-center items-center text-20 max-[1330px]:text-2xl">
-              Outros projetos de Mayke Brito
+              Seus outros Projetos
             </h1>
             <Separator className="bg-gray_400 mt-6" />
             <div className="flex justify-between items-center py-6 max-[1380px]:text-12 max-[1380px]:justify-start max-[1380px]:gap-4 min-[768px]:justify-between">
@@ -114,7 +115,7 @@ export function ProjectsFreelancer() {
               <ArrowUpRight className="bg-gray_500 size-8 rounded-full p-2 ml-10 hover:bg-gray_700 min-[320px]:hidden min-[768px]:flex" />
             </div>
             <Button className=" flex item-center justify-center rounded-md p-3 text-14 bg-gray_500 mt-autobg-trasnparent hover:bg-gray_700">
-              Ver todos os projetos
+              Ver todos os seus projetos
             </Button>
           </div>
         </div>

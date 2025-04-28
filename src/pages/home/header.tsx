@@ -85,9 +85,15 @@ export function Header(){
               >
                 <DropdownMenuLabel>Profile</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Projetos</DropdownMenuItem>
-                <DropdownMenuItem>Propostas</DropdownMenuItem>
-                <DropdownMenuItem>Contratos</DropdownMenuItem>
+                <NavLink to="/projetosFreelancer">
+                  <DropdownMenuItem>Projetos</DropdownMenuItem>
+                </NavLink>
+                <NavLink to="/proposalFreelancer">
+                  <DropdownMenuItem>Propostas</DropdownMenuItem>
+                </NavLink>
+                <NavLink to="/contractFreelancer">
+                  <DropdownMenuItem>Contratos</DropdownMenuItem>
+                </NavLink>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Setting</DropdownMenuItem>
                 <DropdownMenuItem>SignOut</DropdownMenuItem>

@@ -2,24 +2,24 @@
 import { getRandomGradient } from "@/components/get-random-gradient";
 import { Badge } from "@/components/ui/badge";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
 } from "@/components/ui/card";
 import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
 } from "@/components/ui/pagination";
 
 
-export function HeroSectionFreelancer(){
+export function HeroSectionClient(){
     return (
       <div className="bg-gray_700 px-28 pb-20 py-10 max-[768px]:px-10">
         <div className="flex text-sm justify-center mb-10">
@@ -53,8 +53,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-green-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Aberto
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -85,8 +85,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-red-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Fechado
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -117,8 +117,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-green-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Aberto
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -149,8 +149,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-green-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Aberto
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -181,8 +181,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-red-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Fechado
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -213,8 +213,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-red-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Fechado
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -245,8 +245,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-red-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Fechado
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -277,8 +277,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-green-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Aberto
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -309,8 +309,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-green-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Aberto
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
@@ -341,8 +341,8 @@ export function HeroSectionFreelancer(){
                   Prazo final:
                   <span className="text-blue_light font-bold"> 04/05/2025</span>
                 </p>
-                <Badge className="bg-red-500 ml-1 uppercase border-ring-2 text-gray_700 rounded-md border-gray_300 hover:bg-transparent text-center">
-                   Fechado
+                <Badge className="bg-gray_600 ml-1 text-white border-ring-2 rounded-md border-gray_300 hover:bg-transparent text-center">
+                   12 proposatas
                 </Badge>
               </div>
             </CardContent>
