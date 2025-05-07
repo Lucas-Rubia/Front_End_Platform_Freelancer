@@ -17,10 +17,15 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table";
+import { EBaseStatus } from "@/enum/baseStatus";
+import { useProposal } from "@/hooks/useProposal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
 export function ProposalFreelancer() {
+
+const { proposal } = useProposal();
+
   return (
     <div className="bg-gray_700 px-28 pb-20 py-10 max-[768px]:px-10">
       <div className="flex text-sm justify-center mb-10">
@@ -30,152 +35,49 @@ export function ProposalFreelancer() {
       <Table className="w-full">
         <TableHeader className="text-center"></TableHeader>
         <TableBody>
-          <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
-            <div>
-              <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
-              </TableCell>
-              <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
-                Website Redesign
-              </TableCell>
-            </div>
-            <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">
-                Full redesign of the main company website, including responsive
-                layout, animations and new content pages.
-              </span>
-            </TableCell>
-            <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">R$14.000,00</span>
-            </TableCell>
-            <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-              <p>
-              Accepted</p>
-              <span className={`rounded-full size-4 bg-green-500 shrink-0`} />
-            </TableCell>
-          </TableRow>
-
-          <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
-            <div>
-              <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
-              </TableCell>
-              <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
-                API Integration
-              </TableCell>
-            </div>
-            <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">
-                Develop and integrate third-party API for payment processing and
-                transaction verification in real-time.
-              </span>
-            </TableCell>
-            <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">R$14.000,00</span>
-            </TableCell>
-            <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-              <p>
-              Pending</p>
-              <span className={`rounded-full size-4 bg-orange-500 shrink-0`} />
-            </TableCell>
-          </TableRow>
-
-          <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
-            <div>
-              <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
-              </TableCell>
-              <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
-                Mobile App UI
-              </TableCell>
-            </div>
-            <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">
-                Design the user interface for the new mobile application,
-                focused on intuitive navigation and clean visuals.
-              </span>
-            </TableCell>
-            <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">R$14.000,00</span>
-            </TableCell>
-            <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-              <p>Canceled</p>
-              <span className={`rounded-full size-4 bg-red-500 shrink-0`} />
-            </TableCell>
-          </TableRow>
-
-          <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
-            <div>
-              <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
-              </TableCell>
-              <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
-                Database Migration
-              </TableCell>
-            </div>
-            <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">
-                Migrate existing MySQL database to PostgreSQL, preserving all
-                relational structures and indexes.
-              </span>
-            </TableCell>
-            <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">R$14.000,00</span>
-            </TableCell>
-            <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-              <p>Pending</p>
-              <span className={`rounded-full size-4 bg-orange-500 shrink-0`} />
-            </TableCell>
-          </TableRow>
-
-          <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
-            <div>
-              <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
-              </TableCell>
-              <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
-                Email Marketing Setup
-              </TableCell>
-            </div>
-            <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">
-                Setup Mailchimp campaign with automation for client onboarding
-                and retention tracking.
-              </span>
-            </TableCell>
-            <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">R$14.000,00</span>
-            </TableCell>
-            <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-              <p>Canceled</p>
-              <span className={`rounded-full size-4 bg-red-500 shrink-0`} />
-            </TableCell>
-          </TableRow>
-
-          <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
-            <div>
-              <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
-              </TableCell>
-              <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
-                Internal Tool Update
-              </TableCell>
-            </div>
-            <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">
-                Update internal reporting tool to support new KPIs and export
-                capabilities for monthly reports.
-              </span>
-            </TableCell>
-            <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
-              <span className="line-clamp-2">R$14.000,00</span>
-            </TableCell>
-            <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-              <p>
-              Accepted</p>
-              <span className={`rounded-full size-4 bg-green-500 shrink-0`} />
-            </TableCell>
-          </TableRow>
+          <div>
+            {proposal?.map((proposal) => (
+              <TableRow className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2">
+                <div>
+                  <TableCell className="shrink-0 w-full sm:w-auto">
+                    <Checkbox />
+                  </TableCell>
+                  <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
+                    {proposal.titleProject}
+                  </TableCell>
+                </div>
+                <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
+                  <span className="line-clamp-2">{proposal.message}</span>
+                </TableCell>
+                <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
+                  <span className="line-clamp-2">
+                    R$ {proposal.proposedValue.toFixed(2)}
+                  </span>
+                </TableCell>
+                <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
+                  <p>
+                    {proposal.status === EBaseStatus.ACCEPT
+                      ? "Accepted"
+                      : proposal.status === EBaseStatus.CANCELED
+                      ? "Canceled"
+                      : proposal.status === EBaseStatus.PENDING
+                      ? "Pending"
+                    : "Error"}
+                  </p>
+                  <span
+                    className={`rounded-full size-4 ${
+                      proposal.status === EBaseStatus.ACCEPT
+                        ? "bg-green-500"
+                        : proposal.status === EBaseStatus.CANCELED
+                        ? "bg-red-500"
+                        : proposal.status === EBaseStatus.PENDING ? "bg-orange-500"
+                        : "Error"
+                    } shrink-0`}
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
+          </div>
         </TableBody>
         <Separator className="bg-gray-300" />
 

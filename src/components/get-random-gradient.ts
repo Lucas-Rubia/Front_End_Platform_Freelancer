@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 
 const gradientOptions = [
   "from-red-500 to-yellow-500",
@@ -34,11 +33,9 @@ function getRandomIndex(arrayLength: number) {
 }
 
 export function getRandomGradient() {
-  const { direction, gradientClasses } = useMemo(() => {
-    const dir = directionOptions[getRandomIndex(directionOptions.length)];
-    const grad = gradientOptions[getRandomIndex(gradientOptions.length)];
-    return { direction: dir, gradientClasses: grad };
-  }, []);
+  const direction = directionOptions[getRandomIndex(directionOptions.length)];
+  const gradientClasses = gradientOptions[getRandomIndex(gradientOptions.length)];
+
 
   return `${direction} ${gradientClasses}`;
 }
