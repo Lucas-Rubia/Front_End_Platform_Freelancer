@@ -7,4 +7,5 @@ export interface IContract {
     titleProject: string;
     subcriptionProject: string;
     status: EBaseStatus;
+    idProject: number;
 }

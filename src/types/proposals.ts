@@ -6,4 +6,5 @@ export interface IProposal{
     message: string;
     status: EBaseStatus;
     titleProject: string,
+    idProject:number
 }

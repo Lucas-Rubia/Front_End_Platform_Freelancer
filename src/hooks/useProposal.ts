@@ -1,23 +1,31 @@
 import { FreelancerService } from "@/services/freelancerServices";
 import { IProposal } from "@/types/proposals";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import { usePagination } from "./usePagination";
 
 export function useProposal(){
     
   const [proposal, setProposal] = useState<IProposal[]>([]);
+  const [proposalById, setProposalById] = useState<IProposal | undefined>(undefined)
 
-  const fetchProposal = async () => {
-    const response = await FreelancerService.fetchAllProposal(13);
+  const {pagination, setPage, setPageSize, setPagination} = usePagination();
+  const {currentPage,pageSize} = pagination
+
+  const fetchProposal = useCallback(async () => {
+    const response = await FreelancerService.fetchAllProposal(13, currentPage, pageSize);
     setProposal(response.data)
-  }
-
-  useEffect(() => {
-    fetchProposal();
-  }, []);
+    setPagination(response.pagination)
+  },[currentPage, pageSize])
 
 
   return {
     proposal,
+    pagination,
+    setPagination,
+    setPageSize,
+    setPage,
+    fetchProposal,
+
 
   }
 }

@@ -2,26 +2,26 @@
 import { getRandomGradient } from "@/components/get-random-gradient";
 import { Badge } from "@/components/ui/badge";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
 } from "@/components/ui/pagination";
 
 
 export function HeroSectionClient(){
     return (
-      <div className="bg-gray_700 px-28 pb-20 py-10 max-[768px]:px-10">
+      <div className="px-28 pb-20 py-10 max-[768px]:px-10">
         <div className="flex text-sm justify-center mb-10">
           <h1 className="upeercase text-[28px]">All Projects</h1>
         </div>

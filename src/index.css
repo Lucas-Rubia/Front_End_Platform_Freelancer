@@ -61,7 +61,10 @@
 @layer base {
   * {
     @apply font-Segoe text-foreground;
+  }
 
+  body {
+    @apply bg-gray_700;
   }
 }
 

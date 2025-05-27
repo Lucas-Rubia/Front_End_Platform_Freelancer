@@ -7,11 +7,11 @@ import { Router } from "./router/router";
 export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="freelancer-theme">
-      <BrowserRouter>
-        <Toaster />
-        <Header />
-        <Router />
-      </BrowserRouter>
+        <BrowserRouter>
+          <Toaster />
+          <Header />
+          <Router />
+        </BrowserRouter>
     </ThemeProvider>
   );
 }

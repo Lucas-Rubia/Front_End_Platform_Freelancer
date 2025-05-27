@@ -24,7 +24,7 @@ import { ArrowRight } from "lucide-react";
 
 export function ContractClient(){
     return (
-      <div className="bg-gray_700 px-28 pb-20 py-10 max-[768px]:px-10">
+      <div className="px-28 pb-20 py-10 max-[768px]:px-10">
         <div className="flex text-sm justify-center mb-10">
           <h1 className="uppercase text-[28px] text-center leading-8">All yours Contracts</h1>
         </div>

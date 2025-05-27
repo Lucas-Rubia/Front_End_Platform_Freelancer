@@ -8,16 +8,30 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
+import { useProjects } from "@/hooks/useProjects";
 import { images } from "@/utils/imagem";
 import { MenuIcon } from "lucide-react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 export function Header(){
+const {fetchProjects } = useProjects();
+
+useEffect(() => {
+  fetchProjects();
+}, [fetchProjects]);
+
+ const logoClick = () => {
+    fetchProjects();
+  };
+
+
     return (
       <div className="bg-gray_700">
         <div className="grid grid-cols-12 items-center  py-5 max-[1240px]:flex max-[1240px]:justify-between min-[320px]:px-14">
           <div className="flex gap-2 items-center col-span-3">
-            <NavLink to="/" className="flex items-center gap-2 ">
+            <NavLink to="/"
+            onClick={logoClick} className="flex items-center gap-2 ">
               <img src={images.LogoFreelancer} alt="LogoFreelancer" />
               <h1 className="font-bold text-white text-xl max-[425px]:hidden">
                 FreelancerServer
@@ -26,7 +40,7 @@ export function Header(){
           </div>
 
           <div className="flex justify-center gap-6 text-16 text-gray_300 col-span-6 max-[768px]:hidden">
-            <NavLink to="/projetosFreelancer">
+            <NavLink to="/">
               <Button
                 variant="ghost"
                 className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
