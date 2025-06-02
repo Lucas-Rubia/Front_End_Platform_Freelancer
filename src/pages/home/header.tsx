@@ -30,8 +30,11 @@ useEffect(() => {
       <div className="bg-gray_700">
         <div className="grid grid-cols-12 items-center  py-5 max-[1240px]:flex max-[1240px]:justify-between min-[320px]:px-14">
           <div className="flex gap-2 items-center col-span-3">
-            <NavLink to="/"
-            onClick={logoClick} className="flex items-center gap-2 ">
+            <NavLink
+              to="/"
+              onClick={logoClick}
+              className="flex items-center gap-2 "
+            >
               <img src={images.LogoFreelancer} alt="LogoFreelancer" />
               <h1 className="font-bold text-white text-xl max-[425px]:hidden">
                 FreelancerServer
@@ -83,7 +86,9 @@ useEffect(() => {
                 <DropdownMenuLabel>Profile</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem>SignOut</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <NavLink to="/signUp">SignOut</NavLink>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
