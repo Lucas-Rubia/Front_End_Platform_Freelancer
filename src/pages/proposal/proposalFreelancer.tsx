@@ -55,7 +55,11 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
               className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2 cursor-pointer"
             >
               <TableCell className="shrink-0 w-full sm:w-auto">
-                <Checkbox />
+                <Checkbox 
+                 onClick={(e) => {
+              e.stopPropagation(); 
+            }}
+                />
               </TableCell>
               <TableCell className="shrink-0 min-w-[200px] max-w-[200px] sm:w-auto font-semibold truncate rounded-md">
                 {proposal.titleProject}

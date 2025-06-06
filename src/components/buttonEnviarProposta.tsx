@@ -15,6 +15,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
+import { useProposal } from "@/hooks/useProposal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
@@ -22,6 +23,7 @@ import {
   NumericFormat,
   SourceInfo
 } from "react-number-format";
+import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "./ui/button";
@@ -29,43 +31,52 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 
 const FormSchema = z.object({
-    amount: z
+    proposedValue: z
     .number({
       required_error: "O valor da proposta é obrigatório.",
       invalid_type_error: "Valor inválido.",
     })
     .positive({ message: "O valor da proposta deve ser maior que R$ 0,00." })
     .finite({ message: "O valor inserido é muito grande." }),
-  description: z
-    .string()
-    .max(160, {
-      message: "A descrição precisa ter menos que 150 caracteres.",
-    })
+    message: z
+      .string()
+      .max(160, {
+        message: "A descrição precisa ter menos que 150 caracteres.",
+      })
     .trim(),
   })
 
 export function ButtonEnviarProposta() {
 
+  const {projectId} = useParams<{ projectId:string }>();
+
+  const{sendProposalUnique} = useProposal();
+
     const form = useForm<z.infer<typeof FormSchema>>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
-        amount: undefined,
-        description: "",
+        proposedValue: undefined,
+        message: "",
       },
     });
      
-      function onSubmit(data: z.infer<typeof FormSchema>) {
-        return new Promise((resolve) =>
-          setTimeout(() => {
-            toast("Sua proposta foi enviada", {
-              description:
-                "Fique atento que o cliente pode aceitar sua proposta a qualquer momento.",
+     async  function onSubmit(data: z.infer<typeof FormSchema>) {
+        try {await sendProposalUnique(Number(projectId), 20, data.proposedValue, data.message, 3); 
+          toast("Sua proposta foi enviada", {
+              description: "Fique atento que o cliente pode aceitar sua proposta a qualquer momento.",
             });
             form.reset();
-            resolve(void 0);
-          }, 1000)
-        );
-      }
+        } catch (error) {
+            // Se a requisição falhar (ex: erro de servidor, validação, etc.), cairá aqui
+            console.error("Falha ao enviar proposta:", error);
+            toast.error("Erro ao enviar proposta", {
+              description:
+                "Ocorreu um problema. Por favor, tente novamente mais tarde.",
+            });
+            
+          }
+          console.log(data);
+        }
 
   return (
     <Dialog>
@@ -91,7 +102,7 @@ export function ButtonEnviarProposta() {
           >
             <FormField
               control={form.control}
-              name="amount"
+              name="proposedValue"
               render={({ field: { onChange, onBlur, value, name, ref } }) => (
                 <FormItem>
                   <FormLabel>Valor</FormLabel>
@@ -126,13 +137,13 @@ export function ButtonEnviarProposta() {
             />
             <FormField
               control={form.control}
-              name="description"
+              name="message"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Descreva sua proposta e como você oferecerá ela</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Descreva sua proposta, não esqueça de incluir o valor da proposta"
+                      placeholder="Descreva sua proposta, não esqueça de incluir o porque do valor da proposta"
                       className="resize-none bg-gray_500"
                       {...field}
                     />

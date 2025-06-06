@@ -1,12 +1,13 @@
 import { FreelancerService } from "@/services/freelancerServices";
-import { IProposal } from "@/types/proposals";
+import { IBaseResponse } from "@/types/api";
+import { IProposal, IProposalRequest } from "@/types/proposals";
 import { useCallback, useState } from "react";
 import { usePagination } from "./usePagination";
 
 export function useProposal(){
     
   const [proposal, setProposal] = useState<IProposal[]>([]);
-  const [proposalById, setProposalById] = useState<IProposal | undefined>(undefined)
+  const [proposalUnique, setProposalUnique] = useState<IBaseResponse<IProposalRequest>>();
 
   const {pagination, setPage, setPageSize, setPagination} = usePagination();
   const {currentPage,pageSize} = pagination
@@ -18,6 +19,10 @@ export function useProposal(){
   },[currentPage, pageSize])
 
 
+  const sendProposalUnique = async(projectID: number, freelancerId: number, proposedValue: number, message: string, status: number) => {
+    const response = await FreelancerService.sendProposal(projectID, freelancerId, proposedValue, message, status);
+    setProposalUnique(response);}
+
   return {
     proposal,
     pagination,
@@ -25,7 +30,6 @@ export function useProposal(){
     setPageSize,
     setPage,
     fetchProposal,
-
-
+    sendProposalUnique,
   }
 }

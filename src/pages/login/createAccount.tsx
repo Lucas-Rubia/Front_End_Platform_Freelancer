@@ -8,25 +8,45 @@ import { images } from "@/utils/imagem";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleUserRound } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 
 export function CreateAccount() {
-const form = useForm<ValidationCreateAccount>({
-  resolver: zodResolver(validationCreateAccount),
-  defaultValues: {
-    nome: "",
-    sobrenome: "",
-    email: "",
-    senha: "",
-    type: "Freelancer",
-  },
-});
+    const form = useForm<ValidationCreateAccount>({
+      resolver: zodResolver(validationCreateAccount),
+      defaultValues: {
+        nome: "",
+        sobrenome: "",
+        email: "",
+        senha: "",
+        type: "Freelancer",
+      },
+    });
 
-   function onSubmit(data: ValidationCreateAccount) {
-       console.log(data);
-  }
-    
+    const navigate = useNavigate();
+
+    async function onSubmit(data: ValidationCreateAccount) {
+      console.log("Dados validos com sucesso", data);
+
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        toast.success("Conta criada com sucesso!", {
+          description: "Você já pode fazer login na sua conta.",
+        });
+        
+        navigate("/signup");
+        
+        
+      } catch (error) {
+        console.error("Erro ao criar a conta:", error);
+        toast.error("Ops! Algo deu errado.", {
+          description: "Não foi possível criar sua conta. Tente novamente.",
+        });
+      }
+    };
+      
     return (
       <div className="mx-8 flex flex-col justify-center items-center h-screen md:flex-row md:gap-4">
         <div className="flex flex-col items-center gap-2 md:flex-row">
@@ -35,7 +55,9 @@ const form = useForm<ValidationCreateAccount>({
             alt="Logo do Plataforma"
             className="lg:size-16 min-[1440px]:size-20 "
           />
-          <h1 className="text-2xl lg:text-4xl min-[1440px]:mr-4">FreelancerServer</h1>
+          <h1 className="text-2xl lg:text-4xl min-[1440px]:mr-4">
+            FreelancerServer
+          </h1>
         </div>
 
         <div className="flex flex-col gap-8 justify-center items-center text-xs md:flex-row md:gap-10">
@@ -162,13 +184,14 @@ const form = useForm<ValidationCreateAccount>({
 
                 <Button
                   type="submit"
+                  disabled={form.formState.isSubmitting}
                   className="bg-blue-500 text-white hover:bg-blue-600 w-full lg:text-lg min-[1440px]:text-xl"
                 >
                   Criar Conta
                 </Button>
               </form>
             </Form>
-            <NavLink to="/singup">
+            <NavLink to="/signup">
               <p className="lg:text-lg min-[1440px]:text-xl">
                 Já possue conta?
                 <span className="text-blue-500 hover:underline ml-1">

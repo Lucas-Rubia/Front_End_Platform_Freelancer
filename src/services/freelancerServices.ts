@@ -2,7 +2,7 @@ import { apiFreelance } from "@/lib/axios";
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE, IBasePagedResponse, IBaseResponse } from "@/types/api";
 import { IContract } from "@/types/contract";
 import { IProject, IProjectUnique } from "@/types/projects";
-import { IProposal } from "@/types/proposals";
+import { IProposal, IProposalRequest, IProposalUnique } from "@/types/proposals";
 
 async function fetchAllProjects(pageNumber=DEFAULT_PAGE_NUMBER, pageSize=DEFAULT_PAGE_SIZE): Promise<IBasePagedResponse<IProject[]>> {
   return (await apiFreelance.get<IBasePagedResponse<IProject[]>>(`/Project/?pageNumber=${pageNumber}&pageSize=${pageSize}`)).data;
@@ -20,6 +20,22 @@ async function fetchAllProposal(userID:number, pageNumber=DEFAULT_PAGE_NUMBER, p
     return (await apiFreelance.get<IBasePagedResponse<IProposal[]>>(`/proposal/${userID}?pageNumber=${pageNumber}&pageSize=${pageSize}`)).data
 }
 
+
+async function sendProposal(projectID: number, freelancerId: number, proposedValue: number, message: string, status: number): Promise<IBaseResponse<IProposalRequest>>{
+   const url = '/Proposal'; 
+   const requestBody:IProposalUnique = {
+    projectID,
+    freelancerId,
+    proposedValue,
+    message,
+    status
+  };
+
+  const response = await apiFreelance.post<IBaseResponse<IProposalRequest>>(url, requestBody);
+
+  return response.data;
+}
+
 async function fetchAllContract(userID:number, pageNumber=DEFAULT_PAGE_NUMBER, pageSize=DEFAULT_PAGE_SIZE):Promise<IBasePagedResponse<IContract[]>>{
   return (await apiFreelance.get<IBasePagedResponse<IContract[]>>(`/contract/${userID}?pageNumber=${pageNumber}&pageSize=${pageSize}`)).data
 }
@@ -29,5 +45,6 @@ export const FreelancerService = {
   fetchAllProposal,
   fetchAllContract,
   fetchProjectById,
-  fetchProjectsFromUser
+  fetchProjectsFromUser,
+  sendProposal,
 }; 
