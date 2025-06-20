@@ -13,7 +13,7 @@ export function useProposal(){
   const {currentPage,pageSize} = pagination
 
   const fetchProposal = useCallback(async () => {
-    const response = await FreelancerService.fetchAllProposal(13, currentPage, pageSize);
+    const response = await FreelancerService.fetchAllProposal(12, currentPage, pageSize);
     setProposal(response.data)
     setPagination(response.pagination)
   },[currentPage, pageSize])
