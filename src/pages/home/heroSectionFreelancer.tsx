@@ -31,7 +31,7 @@ export function HeroSectionFreelancer() {
   
 
   if(projects.length === 0) return (
-    <div className="flex flex-col justify-center p-4 text-center  items-center" style={{ height: "calc(100vh - 82px)" }}>
+    <div className="flex flex-col justify-center p-4 text-center items-center" style={{ height: "calc(100vh - 82px)" }}>
       <h1 className="text-lg mb-4 min-[768px]:text-2xl">
         Lamentamos, mas não encontramos nenhum projeto
       </h1>
@@ -39,10 +39,14 @@ export function HeroSectionFreelancer() {
     </div>
   );
 
+  //   const sortedProjects = [...projects].sort((a, b) => 
+  //   (projectExpired(a.deadLine) === projectExpired(b.deadLine)) ? 0 : projectExpired(a.deadLine) ? 1 : -1
+  // );
+
   return (
     <div className="px-28 pb-20 py-10 max-[768px]:px-10">
       <div className="flex text-sm justify-center mb-10">
-        <h1 className="upeercase text-[28px]">{title}</h1>
+        <h1 className="uppercase text-[28px]">{title}</h1>
       </div>
 
       <div className="grid grid-cols-12 gap-5 max-w-[1000px] mx-auto max-[1024px]:grid-cols-1">

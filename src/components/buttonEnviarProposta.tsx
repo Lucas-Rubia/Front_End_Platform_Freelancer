@@ -37,7 +37,8 @@ const FormSchema = z.object({
       invalid_type_error: "Valor inválido.",
     })
     .positive({ message: "O valor da proposta deve ser maior que R$ 0,00." })
-    .finite({ message: "O valor inserido é muito grande." }),
+    .finite({ message: "O valor inserido é muito grande." })
+    .max(1000000000, "O valor máximo da proposata deve estar entre o R$ 1 e R$1.000.000.000"),
     message: z
       .string()
       .max(160, {
@@ -60,14 +61,13 @@ export function ButtonEnviarProposta() {
       },
     });
      
-     async  function onSubmit(data: z.infer<typeof FormSchema>) {
+     async function onSubmit(data: z.infer<typeof FormSchema>) {
         try {await sendProposalUnique(Number(projectId), 20, data.proposedValue, data.message, 3); 
           toast("Sua proposta foi enviada", {
               description: "Fique atento que o cliente pode aceitar sua proposta a qualquer momento.",
             });
             form.reset();
         } catch (error) {
-            // Se a requisição falhar (ex: erro de servidor, validação, etc.), cairá aqui
             console.error("Falha ao enviar proposta:", error);
             toast.error("Erro ao enviar proposta", {
               description:

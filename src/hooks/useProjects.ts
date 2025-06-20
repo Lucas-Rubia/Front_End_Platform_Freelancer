@@ -15,13 +15,15 @@ export function useProjects(){
   const {currentPage, pageSize} = pagination
 
 
-  const fetchProjects = useCallback(async (userID?:number) => {
+    const fetchProjects = useCallback(async (userID?:number) => {
     const response = userID
       ? await FreelancerService.fetchProjectsFromUser(userID, currentPage, pageSize)
       : await FreelancerService.fetchAllProjects(currentPage, pageSize);
-       setProjects(response.data);
+
+      setProjects(response.data)
        setPagination(response.pagination)
   }, [currentPage, pageSize])
+
 
 
   const projectExpired = (deadLine: string) => {
@@ -34,6 +36,7 @@ export function useProjects(){
       setProjectById(fetchedProject.data);
       setLoading(false)
   }, [setProjectById])
+  
 
 
   return {

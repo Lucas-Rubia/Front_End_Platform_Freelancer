@@ -3,7 +3,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
-import { ValidationCreateAccount, validationCreateAccount } from "@/Schemas/validationCreateCount";
+import { ValidationCreateAccount, validationCreateAccount } from "@/Schemas/validationProfile";
 import { images } from "@/utils/imagem";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleUserRound } from "lucide-react";

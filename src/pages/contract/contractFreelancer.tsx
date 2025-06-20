@@ -41,7 +41,7 @@ export function ContractFreelancer(){
       <div className="px-28 pb-20 py-10 max-[768px]:px-10">
         <div className="flex text-sm justify-center mb-10">
           <h1 className="uppercase text-[28px] text-center leading-8">
-            All yours Contracts
+            Todos os seus contratos
           </h1>
         </div>
 
@@ -82,15 +82,6 @@ export function ContractFreelancer(){
                       </Avatar>
                     </div>
                     <div className="flex gap-2 items-center">
-                      <p>
-                        {contract.status === EBaseStatus.ACCEPT
-                          ? "Accepted"
-                          : contract.status === EBaseStatus.CANCELED
-                          ? "Canceled"
-                          : contract.status === EBaseStatus.PENDING
-                          ? "Pending"
-                          : "Error"}
-                      </p>
                       <span
                         className={`rounded-full size-4 ${
                           contract.status === EBaseStatus.ACCEPT
@@ -102,6 +93,15 @@ export function ContractFreelancer(){
                             : "Error"
                         } shrink-0`}
                       />
+                      <p>
+                        {contract.status === EBaseStatus.ACCEPT
+                          ? "Aceito"
+                          : contract.status === EBaseStatus.CANCELED
+                          ? "Cancelado"
+                          : contract.status === EBaseStatus.PENDING
+                          ? "Pendente"
+                          : "Erro"}
+                      </p>
                     </div>
                   </div>
                 </CardContent>

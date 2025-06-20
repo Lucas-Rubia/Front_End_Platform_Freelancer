@@ -43,7 +43,7 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
   return (
     <main className="px-28 pb-20 py-10 max-[768px]:px-10">
       <div className="flex text-sm justify-center mb-10">
-        <h1 className="uppercase text-[28px]">All Proposal</h1>
+        <h1 className="uppercase text-[28px] leading-normal">Todas as Propostas</h1>
       </div>
 
       <Table className="w-full">
@@ -67,21 +67,12 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
               <TableCell className="w-full sm:flex-1 sm:min-w-0 sm:max-w-[680px] line-clamp-2">
                 <span className="line-clamp-2">{proposal.message}</span>
               </TableCell>
-              <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[680px] line-clamp-2">
+              <TableCell className="w-full sm:flex-1 sm:text-center sm:min-w-0 sm:max-w-[300px] line-clamp-2">
                 <span className="line-clamp-2">
                   R$ {proposal.proposedValue.toFixed(2)}
                 </span>
               </TableCell>
-              <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-                <p>
-                  {proposal.status === EBaseStatus.ACCEPT
-                    ? "Accepted"
-                    : proposal.status === EBaseStatus.CANCELED
-                    ? "Canceled"
-                    : proposal.status === EBaseStatus.PENDING
-                    ? "Pending"
-                    : "Error"}
-                </p>
+              <TableCell className="shrink-0 min-w-[120px] gap-2 flex sm:w-auto">
                 <span
                   className={`rounded-full size-4 ${
                     proposal.status === EBaseStatus.ACCEPT
@@ -93,6 +84,16 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
                       : "Error"
                   } shrink-0`}
                 />
+                <p>
+                  {proposal.status === EBaseStatus.ACCEPT
+                    ? "Aceito"
+                    : proposal.status === EBaseStatus.CANCELED
+                    ? "Cancelado"
+                    : proposal.status === EBaseStatus.PENDING
+                    ? "Pendente"
+                    : "Erro"}
+                </p>
+                
               </TableCell>
             </TableRow>
           ))}

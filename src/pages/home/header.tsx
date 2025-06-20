@@ -28,7 +28,7 @@ useEffect(() => {
 
     return (
       <div className="bg-gray_700">
-        <div className="grid grid-cols-12 items-center  py-5 max-[1240px]:flex max-[1240px]:justify-between min-[320px]:px-14">
+        <div className="grid grid-cols-12 items-center py-5 max-[1240px]:flex max-[1240px]:justify-between min-[320px]:px-14">
           <div className="flex gap-2 items-center col-span-3">
             <NavLink
               to="/"
@@ -83,11 +83,13 @@ useEffect(() => {
                 align="end"
                 className="bg-gray_700 text-gray_200 border-gray_600 "
               >
-                <DropdownMenuLabel>Profile</DropdownMenuLabel>
+                <DropdownMenuLabel>Perfil</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem>
-                  <NavLink to="/signUp">SignOut</NavLink>
+                <DropdownMenuItem asChild>
+                  <NavLink to="/settingpage">Configuração</NavLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <NavLink to="/signUp">Sair</NavLink>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -103,8 +105,8 @@ useEffect(() => {
                 className="bg-gray_700 text-gray_200 border-gray_600 "
               >
                 <DropdownMenuLabel>Profile</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <NavLink to="/projetosFreelancer">
+                <DropdownMenuSeparator asChild/>
+                <NavLink to="/">
                   <DropdownMenuItem>Projetos</DropdownMenuItem>
                 </NavLink>
                 <NavLink to="/proposalFreelancer">
@@ -114,8 +116,12 @@ useEffect(() => {
                   <DropdownMenuItem>Contratos</DropdownMenuItem>
                 </NavLink>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem>SignOut</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <NavLink to="/settingpage">Configuração</NavLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <NavLink to="/signUp">Sair</NavLink>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

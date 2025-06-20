@@ -5,6 +5,7 @@ import { CreateAccount } from "@/pages/login/createAccount";
 import { SignUp } from "@/pages/login/signUp";
 import { ProjectsFreelancer } from "@/pages/project/projectsFreelancer";
 import { ProposalFreelancer } from "@/pages/proposal/proposalFreelancer";
+import { SettingPage } from "@/pages/settings/settingsPage";
 import { Route, Routes } from "react-router-dom";
 
 
@@ -22,6 +23,7 @@ export function Router(){
           />
           <Route path="/proposalFreelancer" element={<ProposalFreelancer />} />
           <Route path="/contractFreelancer" element={<ContractFreelancer />} />
+          <Route path="/settingpage" element={<SettingPage />} />
         </Route>
       </Routes>
     );
