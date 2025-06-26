@@ -1,6 +1,7 @@
 export interface IBaseResponse<T> {
     data: T;
-    message: string | null;
+    message: string | null
+    errorMessages?: string[] | null;
 }
 export interface IPagination {
   currentPage: number;

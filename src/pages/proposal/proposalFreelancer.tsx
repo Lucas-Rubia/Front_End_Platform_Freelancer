@@ -10,42 +10,42 @@ import {
   TableRow
 } from "@/components/ui/table";
 import { EBaseStatus } from "@/enum/baseStatus";
+import { EUserType } from "@/enum/user";
 import { useProposal } from "@/hooks/useProposal";
 import { Frown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export function ProposalFreelancer() {
-  
- const user: 'client' | 'freelancer' = "freelancer"; 
 
-  const [proposalStatus, setProposalStatus] = useState<{ [key: number]: 'accepted' | 'denied' }>({});
+
+
+
+const user: EUserType = EUserType.CUSTOMER
+
+export function ProposalFreelancer() {
+  const {proposal, setProposal, pagination, setPage, fetchProposal, updateStatusProposal} = useProposal();
+
 
   const handleAcceptProposal = (e: React.MouseEvent, proposalId: number) => {
-    e.stopPropagation(); 
-    setProposalStatus(prevStatuses => ({
-      ...prevStatuses,
-      [proposalId]: 'accepted'
-    }));}
-
-    const handleDenyProposal = (e: React.MouseEvent, proposalId: number) => {
-    e.stopPropagation(); 
-    setProposalStatus(prevStatuses => ({
-      ...prevStatuses,
-      [proposalId]: 'denied'
-    }));}
-
+      e.stopPropagation();
+      updateStatusProposal(proposalId, EBaseStatus.ACCEPT);
+      console.log("Aceito")
+    }
+  const handleDeniedProposal = (e: React.MouseEvent, proposalId: number ) => {
+      e.stopPropagation();
+      updateStatusProposal(proposalId, EBaseStatus.CANCELED);
+      console.log("Recusado")
+    }
+  
 
   const navigate = useNavigate(); 
 
     const handleRowClick = (idProject:Number) => {
     navigate(`/${idProject}/projetosFreelancer`);
     
-    
   };
 
-const {proposal, pagination, setPage, fetchProposal } = useProposal();
 
   useEffect(() => {
     fetchProposal();
@@ -77,7 +77,7 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
               className="flex flex-wrap items-center justify-between w-full hover:bg-gray_600 rounded-md p-2 cursor-pointer"
             >
               <TableCell className="shrink-0 w-full sm:w-auto">
-                {user === "client" && (
+                {user === EUserType.CUSTOMER && (
                   <Checkbox
                     onClick={(e) => {
                       e.stopPropagation();
@@ -96,7 +96,7 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
                   R$ {proposal.proposedValue.toFixed(2)}
                 </span>
               </TableCell>
-              {user === "client" ? (
+              {user === EUserType.FREELANCER ? (
                 <TableCell className="shrink-0 min-w-[120px] gap-2 flex sm:w-auto">
                   <span
                     className={`rounded-full size-4 ${
@@ -121,11 +121,11 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
                 </TableCell>
               ) : (
                 <TableCell className="shrink-0 w-full gap-2 flex sm:w-auto">
-                  {proposalStatus[proposal.id] === "accepted" ? (
+                  {proposal.status === EBaseStatus.ACCEPT ? (
                     <p className="text-green-500 font-semibold">
                       Proposta Aceita
                     </p>
-                  ) : proposalStatus[proposal.id] === "denied" ? (
+                  ) : proposal.status === EBaseStatus.CANCELED ? (
 
                     <p className="text-red-500 font-semibold">
                       Proposta Recusada
@@ -139,7 +139,7 @@ const {proposal, pagination, setPage, fetchProposal } = useProposal();
                         Accept
                       </Button>
                       <Button
-                        onClick={(e) => handleDenyProposal(e, proposal.id)}
+                        onClick={(e) => handleDeniedProposal(e, proposal.id)}
                         className="bg-red-500 hover:bg-red-600 w-20"
                       >
                         Denied

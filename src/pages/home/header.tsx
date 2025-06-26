@@ -31,7 +31,7 @@ useEffect(() => {
         <div className="grid grid-cols-12 items-center py-5 max-[1240px]:flex max-[1240px]:justify-between min-[320px]:px-14">
           <div className="flex gap-2 items-center col-span-3">
             <NavLink
-              to="/"
+              to="/home"
               onClick={logoClick}
               className="flex items-center gap-2 "
             >
@@ -43,7 +43,7 @@ useEffect(() => {
           </div>
 
           <div className="flex justify-center gap-6 text-16 text-gray_300 col-span-6 max-[768px]:hidden">
-            <NavLink to="/">
+            <NavLink to="/home">
               <Button
                 variant="ghost"
                 className=" hover:bg-transparent border-b-2 border-transparent hover:border-white hover:text-gray_300"
@@ -89,7 +89,7 @@ useEffect(() => {
                   <NavLink to="/settingpage">Configuração</NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <NavLink to="/signUp">Sair</NavLink>
+                  <NavLink to="/" replace>Sair</NavLink>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -106,7 +106,7 @@ useEffect(() => {
               >
                 <DropdownMenuLabel>Profile</DropdownMenuLabel>
                 <DropdownMenuSeparator asChild/>
-                <NavLink to="/">
+                <NavLink to="/home">
                   <DropdownMenuItem>Projetos</DropdownMenuItem>
                 </NavLink>
                 <NavLink to="/proposalFreelancer">
@@ -120,7 +120,7 @@ useEffect(() => {
                   <NavLink to="/settingpage">Configuração</NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <NavLink to="/signUp">Sair</NavLink>
+                  <NavLink to="/" replace>Sair</NavLink>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

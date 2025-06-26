@@ -22,3 +22,8 @@ export interface IProposalRequest{
     message: string,
     status: number
 }
+
+export interface IUpdateStatusProposal {
+  proposalID: number;
+  status: EBaseStatus;
+}

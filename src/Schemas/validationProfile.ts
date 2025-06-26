@@ -13,20 +13,10 @@ export type ValidationCreateAccount = z.infer<typeof validationCreateAccount>;
 // Validação da página de atualização de perfil
 
 
-export const validationNameUpdate = z.object({
-  nome:z.string(). nonempty("Nome é obrigatório"),
-  sobrenome: z.string().nonempty("Sobrenome é obrigatório")
-});
-
-export const validationPasswordUpdate = z.object({
-  senha: z.string().min(8, "Senha deve ter pelo menos 8 caracteres"),
-});
-
 export const validationUpdateProfile =z.object({
-  nome:z.string(),
-  sobrenome: z.string(),
-  senha: z.string(),
-  email:z.string().optional(),
+  nome:z.string().min(5,"nome obrigatorio"),
+  sobrenome: z.string().nonempty("Sobrenome é obrigatório"),
+  senha: z.string().min(8, "Senha deve ter pelo menos 8 caracteres"),
 })
 
 

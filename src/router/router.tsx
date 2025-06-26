@@ -12,11 +12,11 @@ import { Route, Routes } from "react-router-dom";
 export function Router(){
     return (
       <Routes>
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<SignUp />} />
         <Route path="/createaccount" element={<CreateAccount />} />
 
         <Route element={<BaseLayout />}>
-          <Route path="/" element={<HeroSectionFreelancer />} />
+          <Route path="/home" element={<HeroSectionFreelancer />} />
           <Route
             path="/:projectId/projetosFreelancer"
             element={<ProjectsFreelancer />}
