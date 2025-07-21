@@ -39,9 +39,7 @@ export function HeroSectionFreelancer() {
     </div>
   );
 
-  //   const sortedProjects = [...projects].sort((a, b) => 
-  //   (projectExpired(a.deadLine) === projectExpired(b.deadLine)) ? 0 : projectExpired(a.deadLine) ? 1 : -1
-  // );
+
 
   return (
     <div className="px-28 pb-20 py-10 max-[768px]:px-10">

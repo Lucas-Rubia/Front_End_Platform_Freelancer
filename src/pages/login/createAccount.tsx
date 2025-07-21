@@ -3,6 +3,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
+import { useLogin } from "@/hooks/useLogin";
 import { ValidationCreateAccount, validationCreateAccount } from "@/Schemas/validationProfile";
 import { images } from "@/utils/imagem";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,11 +14,13 @@ import { toast } from "sonner";
 
 
 export function CreateAccount() {
+
+  const {createAccount} = useLogin();
+
     const form = useForm<ValidationCreateAccount>({
       resolver: zodResolver(validationCreateAccount),
       defaultValues: {
         nome: "",
-        sobrenome: "",
         email: "",
         senha: "",
         type: "Freelancer",
@@ -30,13 +33,15 @@ export function CreateAccount() {
       console.log("Dados validos com sucesso", data);
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        // await new Promise((resolve) => setTimeout(resolve, 1000));
 
+        await createAccount(data.nome, data.email, data.senha, data.type);
+        
         toast.success("Conta criada com sucesso!", {
           description: "Você já pode fazer login na sua conta.",
         });
         
-        navigate("/signup");
+        navigate("/");
         
         
       } catch (error) {
@@ -76,7 +81,6 @@ export function CreateAccount() {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="flex flex-col gap-4 justify-center max-w-[600px]"
               >
-                <div className="flex flex-col gap-4 md:flex-row ">
                   <FormField
                     control={form.control}
                     name="nome"
@@ -86,30 +90,13 @@ export function CreateAccount() {
                           <Input
                             placeholder="Nome"
                             {...field}
-                            className="bg-transparent max-w-[250px] lg:text-lg min-[1440px]:w-96 min-[1440px]:text-xl"
+                            className="bg-transparent flex w-full md:flex-row lg:text-lg min-[1440px]:text-xl"
                           />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <FormField
-                    control={form.control}
-                    name="sobrenome"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <Input
-                            placeholder="sobrenome"
-                            {...field}
-                            className="bg-transparent max-w-[250px] lg:text-lg min-[1440px]:w-96 min-[1440px]:text-xl"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
                 <FormField
                   control={form.control}
                   name="email"
@@ -191,7 +178,7 @@ export function CreateAccount() {
                 </Button>
               </form>
             </Form>
-            <NavLink to="/signup">
+            <NavLink to="/">
               <p className="lg:text-lg min-[1440px]:text-xl">
                 Já possue conta?
                 <span className="text-blue-500 hover:underline ml-1">

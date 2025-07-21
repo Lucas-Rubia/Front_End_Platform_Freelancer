@@ -10,13 +10,29 @@ export function useLogin(){
     const sentLogin = async (email: string, password: string) => {
         const response = await FreelancerService.sendLogin(email, password);
         setLogin(response);
-        if (!response.data) {
+
+        if (!response.data || !response.data.token) {
             throw new Error(response.message || 'Credenciais inválidas.');
         }
-    return response.data;
+
+        localStorage.setItem("authToken", response.data.token);
+
+        console.log("user", response.data);
+        return response.data;
+    }
+
+
+    const createAccount = async (name: string, email: string, password: string, type: "Freelancer" | "Customer") => {
+        const response = await FreelancerService.createAccount(name, email, password, type);
+
+        if (!response.data) {
+            throw new Error(response.message || 'Erro ao criar conta.');
+        }   
+        return response.data;
     }
 
     return {
         sentLogin,
+        createAccount,
     }
 }

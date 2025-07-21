@@ -11,17 +11,13 @@ import { toast } from "sonner";
 
 export function SettingPage(){
 
-
-
   const [isNameEditable, setIsNameEditable] = useState(false);
   const [isPasswordEditable, setIsPasswordEditable] = useState(false);
-
 
   const handleToggleName = () => setIsNameEditable((prev) => !prev);
   const handleTogglePassword = () => setIsPasswordEditable((prev) => !prev);
 
-
-
+  
 async function onSubmit(data: ValidationUpdateProfile) {
       console.log("Dados validos com sucesso", data);
 

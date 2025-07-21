@@ -1,7 +1,7 @@
 import { apiFreelance } from "@/lib/axios";
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE, IBasePagedResponse, IBaseResponse } from "@/types/api";
 import { IContract } from "@/types/contract";
-import { ILogin, ILoginResponse } from "@/types/login";
+import { ICreateAccount, ILogin, ILoginResponse } from "@/types/login";
 import { IProject, IProjectUnique } from "@/types/projects";
 import { IProposal, IProposalRequest, IProposalUnique, IUpdateStatusProposal } from "@/types/proposals";
 
@@ -19,7 +19,6 @@ async function sendLogin(email:string, password:string): Promise<IBaseResponse<I
 }
 
 
-
 // Project related functions
 
 async function fetchAllProjects(pageNumber=DEFAULT_PAGE_NUMBER, pageSize=DEFAULT_PAGE_SIZE): Promise<IBasePagedResponse<IProject[]>> {
@@ -33,6 +32,8 @@ async function fetchProjectsFromUser(userID:number, pageNumber=DEFAULT_PAGE_NUMB
 async function fetchProjectById(projectID: number): Promise<IBaseResponse<IProjectUnique>> {
   return (await apiFreelance.get<IBaseResponse<IProjectUnique>>(`/Project/details/${projectID}`)).data;
 }
+
+
 
 // Proposal related functions
 async function fetchAllProposal(userID:number, pageNumber=DEFAULT_PAGE_NUMBER, pageSize=DEFAULT_PAGE_SIZE): Promise<IBasePagedResponse<IProposal[]>>{
@@ -74,6 +75,26 @@ async function fetchAllContract(userID:number, pageNumber=DEFAULT_PAGE_NUMBER, p
   return (await apiFreelance.get<IBasePagedResponse<IContract[]>>(`/contract/${userID}?pageNumber=${pageNumber}&pageSize=${pageSize}`)).data
 }
 
+
+
+// SingUp related functions
+async function createAccount(name:string, email:string, password:string, type: ICreateAccount["type"]): Promise<IBaseResponse<ICreateAccount>> {
+  const url = '/Auth'; 
+   const requestBody:ICreateAccount = {
+    name,
+    email,
+    password,
+    type
+
+  };
+ 
+ const response = await apiFreelance.post<IBaseResponse<ICreateAccount>>(url, requestBody);
+ return response.data;
+ 
+}
+
+
+
 export const FreelancerService = {
   fetchAllProjects,
   fetchAllProposal,
@@ -83,4 +104,5 @@ export const FreelancerService = {
   sendProposal,
   updadeStatusProposal,
   sendLogin,
+  createAccount,
 }; 

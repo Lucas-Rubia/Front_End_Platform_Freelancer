@@ -9,6 +9,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export function SignUp() {
 
+  
   const navigate = useNavigate();
   const {sentLogin} = useLogin();
     const [error, setError] = useState<string | null>(null);
