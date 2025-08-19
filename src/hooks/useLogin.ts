@@ -34,5 +34,6 @@ export function useLogin(){
     return {
         sentLogin,
         createAccount,
+        login,
     }
 }
